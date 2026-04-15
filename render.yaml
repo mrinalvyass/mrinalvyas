@@ -1,5 +1,5 @@
 databases:
-  - name: mrinal-portfolio-db
+  - name: mrinalvyass
     plan: free
 
 services:
