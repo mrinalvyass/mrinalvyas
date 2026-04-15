@@ -1,10 +1,10 @@
 databases:
-  - name: mrinalvyass
+  - name: mrinalvyass-db
     plan: free
 
 services:
   - type: web
-    name: mrinal-portfolio-api
+    name: mrinalvyass-api
     runtime: python
     rootDir: backend
     plan: free
@@ -19,12 +19,12 @@ services:
         generateValue: true
       - key: DATABASE_URL
         fromDatabase:
-          name: mrinal-portfolio-db
+          name: mrinalvyass-db
           property: connectionString
       - key: FRONTEND_URL
-        value: https://mrinal-portfolio-web.onrender.com
+        value: https://mrinalvyass-web.onrender.com
       - key: FRONTEND_URLS
-        value: https://mrinal-portfolio-web.onrender.com,http://localhost:5173,http://127.0.0.1:5173
+        value: https://mrinalvyass-web.onrender.com,http://localhost:5173,http://127.0.0.1:5173
       - key: GITHUB_USERNAME
         value: mrinalvyas
       - key: ADMIN_EMAIL
@@ -33,14 +33,14 @@ services:
         sync: false
 
   - type: web
-    name: mrinal-portfolio-web
+    name: mrinalvyass-web
     runtime: static
     rootDir: frontend
     buildCommand: npm install && npm run build
     staticPublishPath: dist
     envVars:
       - key: VITE_API_BASE_URL
-        value: https://mrinal-portfolio-api.onrender.com/api
+        value: https://mrinalvyass-api.onrender.com/api
     routes:
       - type: rewrite
         source: /*
