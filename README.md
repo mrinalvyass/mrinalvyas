@@ -312,6 +312,8 @@ Build Command: npm install && npm run build
 Publish Directory: dist
 ```
 
+Note: Render static sites do not need a `plan` field in `render.yaml`; the frontend service intentionally omits it.
+
 Frontend environment variable:
 
 ```env
